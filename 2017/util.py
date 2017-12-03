@@ -1,8 +1,9 @@
-def expect(actual, expected):
+def expect(func, input, expected):
+    actual = func(input)
     if actual == expected:
-        print(f'✔ {actual} == {expected}')
+        print(f'✔ {func.__name__}({input}) = {actual}')
     else:
-        print(f'✘ {actual} != {expected}')
+        print(f'✘ {func.__name__}({input}) = {actual} != {expected}')
 
 
 def solution(answer, solution=None):

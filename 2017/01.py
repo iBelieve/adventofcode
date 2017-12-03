@@ -33,16 +33,16 @@ if __name__ == '__main__':
     # Part 1
     string = input('01')
 
-    expect(captcha1('1122'), 3)
-    expect(captcha1('1111'), 4)
-    expect(captcha1('1234'), 0)
-    expect(captcha1('91212129'), 9)
+    expect(captcha1, '1122', 3)
+    expect(captcha1, '1111', 4)
+    expect(captcha1, '1234', 0)
+    expect(captcha1, '91212129', 9)
     solution(captcha1(string), 1223)
 
     # Part 2
-    expect(captcha2('1212'), 6)
-    expect(captcha2('1221'), 0)
-    expect(captcha2('123425'), 4)
-    expect(captcha2('123123'), 12)
-    expect(captcha2('12131415'), 4)
+    expect(captcha2, '1212', 6)
+    expect(captcha2, '1221', 0)
+    expect(captcha2, '123425', 4)
+    expect(captcha2, '123123', 12)
+    expect(captcha2, '12131415', 4)
     solution(captcha2(string), 1284)
