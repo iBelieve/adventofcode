@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-from util import expect, solution, input
+from util import expect, solution
 from itertools import count, islice
 import math
 
@@ -128,6 +128,7 @@ if __name__ == '__main__':
     # Part 1
     expect(access, 1, 0)
     expect(access, 12, 3)
+    expect(access, 21, 4)
     expect(access, 23, 2)
     expect(access, 1024, 31)
     solution(access(number), 438)
