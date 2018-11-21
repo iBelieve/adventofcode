@@ -1,5 +1,8 @@
 def expect(func, input, expected):
     actual = func(input)
+    input = str(input)
+    if len(input) > 30:
+        input = '...'
     if actual == expected:
         print(f'✔ {func.__name__}({input}) = {actual}')
     else:
@@ -18,5 +21,5 @@ def solution(answer, solution=None):
 
 def input(problem):
     with open(problem + '.txt') as f:
-        return f.read().strip()
+        return f.read().strip('\n')
 

@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+export TZ=EST
+
+DAY=$(date +%-d)
+DAY0=$(date +%d)
+FILE=$DAY0.txt
+SESSION=$(cat .session)
+
+wget --header "Cookie: session=$SESSION" -O $FILE \
+    https://adventofcode.com/2017/day/$DAY/input
+less $FILE
