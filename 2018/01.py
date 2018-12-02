@@ -1,8 +1,6 @@
 #! /usr/bin/env python3
 
 # Advent of Code 2018 Puzzle 1 - https://adventofcode.com/2018/day/1
-# Part 1 - 00:01:33 (rank 102)
-# Part 2 - 00:04:25 (rank 55)
 
 from utils import *
 

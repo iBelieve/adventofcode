@@ -1,10 +1,13 @@
 import re
-from collections import defaultdict
-from itertools import combinations, permutations
+import itertools
+from collections import *
+from itertools import *
+
 
 def input(name):
     with open(f'{name}.txt') as f:
         return f.read().strip()
+
 
 def example(func, input, expected):
     actual = func(input)
