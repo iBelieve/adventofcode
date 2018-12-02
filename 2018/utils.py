@@ -28,3 +28,15 @@ def solution(answer, solution=None):
             print(f'Wrong solution: {answer} != {solution}')
     else:
         print(f'Solution: {answer}')
+
+
+def first_duplicate(items):
+    already_seen = set()
+
+    for item in items:
+        if item in already_seen:
+            return item
+        else:
+            already_seen.add(item)
+
+    return None

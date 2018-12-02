@@ -12,6 +12,11 @@ def split(text):
     else:
         return text.split(', ')
 
+
+def changes(data):
+    return (int(n) for n in split(data))
+
+
 # After feeling like you've been falling for a few minutes, you look
 # at the device's tiny screen. "Error: Device must be calibrated
 # before first use. Frequency drift detected. Cannot maintain
@@ -23,23 +28,14 @@ def split(text):
 # Starting with a frequency of zero, what is the resulting frequency
 # after all of the changes in frequency have been applied?
 def problem1(data):
-    return sum(int(n) for n in split(data))
+    return sum(changes(data))
 
 
 # You notice that the device repeats the same frequency change list
 # over and over. To calibrate the device, you need to find the first
 # frequency it reaches twice.
 def problem2(data):
-    changes = [int(n) for n in split(data)]
-    numbers = set([0])
-    number = 0
-
-    while True:
-        for change in changes:
-            number += change
-            if number in numbers:
-                return number
-            numbers.add(number)
+    return first_duplicate(accumulate(cycle(changes(data))))
 
 
 example(problem1, '+1, -2, +3, +1', 3)
