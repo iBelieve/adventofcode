@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 itertools = "0.10.5"
+strum = { version = "0.24.1", features = ["derive"] }
 
 [patch.crates-io]
 # k_largest variant of k_smallest: https://github.com/rust-itertools/itertools/pull/654
