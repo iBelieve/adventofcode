@@ -1,0 +1,13 @@
+[package]
+name = "advent2021"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+itertools = "0.10.5"
+
+[patch.crates-io]
+# k_largest variant of k_smallest: https://github.com/rust-itertools/itertools/pull/654
+itertools = { git = 'https://github.com/ejmount/itertools' }
