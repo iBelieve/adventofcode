@@ -126,16 +126,16 @@ fn day02_part1_sample() {
 }
 
 #[test]
-fn day01_part1() {
+fn day02_part1() {
     assert_eq!(part1(INPUT), 14264);
 }
 
 #[test]
-fn day01_part2_sample() {
+fn day02_part2_sample() {
     assert_eq!(part2(SAMPLE_INPUT), 12);
 }
 
 #[test]
-fn day01_part2() {
+fn day02_part2() {
     assert_eq!(part2(INPUT), 12382);
 }
