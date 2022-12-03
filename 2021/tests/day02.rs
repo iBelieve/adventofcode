@@ -76,21 +76,21 @@ fn part2(input: &str) -> u32 {
 }
 
 #[test]
-fn day01_part1_sample() {
+fn day02_part1_sample() {
     assert_eq!(part1(SAMPLE_INPUT), 150);
 }
 
 #[test]
-fn day01_part1() {
+fn day02_part1() {
     assert_eq!(part1(INPUT), 1693300);
 }
 
 #[test]
-fn day01_part2_sample() {
+fn day02_part2_sample() {
     assert_eq!(part2(SAMPLE_INPUT), 900);
 }
 
 #[test]
-fn day01_part2() {
+fn day02_part2() {
     assert_eq!(part2(INPUT), 1857958050);
 }
