@@ -1,6 +1,5 @@
 use anyhow::{Context, Result};
-use itertools::Itertools;
-use std::{any, collections::HashSet, str::FromStr};
+use std::str::FromStr;
 
 const SAMPLE_INPUT: &str = "2-4,6-8
 2-3,4-5
@@ -92,5 +91,5 @@ fn day04_part2_sample() {
 
 #[test]
 fn day04_part2() {
-    assert_eq!(part2(INPUT), 0);
+    assert_eq!(part2(INPUT), 886);
 }

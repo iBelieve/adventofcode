@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.66"
 itertools = "0.10.5"
+regex = "1.7.0"
 strum = { version = "0.24.1", features = ["derive"] }
 
 [patch.crates-io]
