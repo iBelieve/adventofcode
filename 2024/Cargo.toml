@@ -5,4 +5,5 @@ edition = "2021"
 
 [dependencies]
 counter = "0.6.0"
+gcd = "2.3.0"
 itertools = "0.13.0"
