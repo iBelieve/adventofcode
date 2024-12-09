@@ -1,5 +1,3 @@
-use counter::Counter;
-
 const SAMPLE_INPUT: &str = "\
 7 6 4 2 1
 1 2 7 8 9
@@ -22,25 +20,26 @@ struct Entry {
     direction: Option<Direction>,
 }
 
-fn parse_input(input: &str) -> impl Iterator<Item = Vec<&str>> {
-    input
-        .trim_end()
-        .split('\n')
-        .map(|line| line.split_whitespace().collect())
+fn parse_input(input: &str) -> impl Iterator<Item = Vec<i32>> + use<'_> {
+    input.trim_end().split('\n').map(|line| {
+        line.split_whitespace()
+            .map(|lvl| lvl.parse::<i32>().unwrap())
+            .collect()
+    })
 }
 
-fn is_valid_report(report: &[&str]) -> bool {
+fn is_valid_report(report: &[i32]) -> bool {
     let Some((first, rest)) = report.split_first() else {
         return false;
     };
 
     let mut prev = Entry {
-        level: first.parse::<i32>().expect("Unable to parse level"),
+        level: *first,
         direction: None,
     };
 
     for level in rest {
-        let level = level.parse::<i32>().expect("Unable to parse level");
+        let level = *level;
 
         let diff = level - prev.level;
 
@@ -71,15 +70,22 @@ fn part1(input: &str) -> u32 {
         .count() as u32
 }
 
-// fn part2(input: &str) -> u32 {
-//     let (left, right) = parse_input(input);
+fn part2(input: &str) -> u32 {
+    parse_input(input)
+        .filter(|report| {
+            for index in 0..report.len() {
+                let mut report = report.to_vec();
+                report.remove(index);
 
-//     let right_counts = right.into_iter().collect::<Counter<u32>>();
+                if is_valid_report(&report) {
+                    return true;
+                }
+            }
 
-//     left.into_iter()
-//         .map(|l| l * (right_counts[&l] as u32))
-//         .sum()
-// }
+            false
+        })
+        .count() as u32
+}
 
 #[test]
 fn day02_part1_sample() {
@@ -91,12 +97,12 @@ fn day02_part1() {
     assert_eq!(part1(INPUT), 287);
 }
 
-// #[test]
-// fn day02_part2_sample() {
-//     assert_eq!(part2(SAMPLE_INPUT), 0);
-// }
+#[test]
+fn day02_part2_sample() {
+    assert_eq!(part2(SAMPLE_INPUT), 4);
+}
 
-// #[test]
-// fn day02_part2() {
-//     assert_eq!(part2(INPUT), 0);
-// }
+#[test]
+fn day02_part2() {
+    assert_eq!(part2(INPUT), 354);
+}
