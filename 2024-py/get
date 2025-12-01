@@ -1,0 +1,25 @@
+#! /bin/bash
+
+export TZ=EST
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+if [[ -z "$YEAR" ]]; then
+   YEAR=$(date +%Y)
+fi
+
+
+if [[ -z "$1" ]]; then
+    DAY=$(date +%-d)
+else
+    printf -v DAY "%d" $1
+fi
+
+printf -v DAY0 "%02d" $DAY
+
+FILE=$DAY0.txt
+SESSION=$(cat $DIR/.session)
+
+wget --header "Cookie: session=$SESSION" -O $FILE \
+    https://adventofcode.com/$YEAR/day/$DAY/input
+less $FILE
